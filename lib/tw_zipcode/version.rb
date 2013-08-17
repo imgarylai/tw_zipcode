@@ -1,3 +1,3 @@
 module TwZipcode
-  VERSION = "0.0.1"
+  VERSION = "1.5.2"
 end
