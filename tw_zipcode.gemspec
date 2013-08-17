@@ -8,7 +8,7 @@ Gem::Specification.new do |spec|
   spec.version       = TwZipcode::VERSION
   spec.authors       = ["Gary Lai"]
   spec.email         = ["garylai1990@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
+  spec.description   = %q{Provide taiwan's zipcode selector}
   spec.summary       = %q{TODO: Write a gem summary}
   spec.homepage      = ""
   spec.license       = "MIT"
