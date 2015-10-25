@@ -22,67 +22,76 @@
 
 把以下這行加入到`application.js`:
 
-```
+``` js
 //= require tw_zipcode
 ```
 ### Example
 
-預設樣式：
+預設：
 
-```
+``` html
+<!-- HTML -->
 <div id="twzipcode"></div>
+```
+
+``` js
+/* Javascript */
+$('#twzipcode').twzipcode();
 ```
 
 自訂樣式：
 
-```
-<div id="twzipcode">
-  <div data-role="county" data-style="county"></div>
-  <!--自訂縣市選單容器，以及套用 .county 樣式-->
-  <div data-role="district" data-style="district"></div>
-  <!--自訂鄉鎮市區選單容器，以及套用 .district 樣式-->
-  <div data-role="zipcode" data-style="zipcode"></div>
-  <!--自訂郵遞區號容器，以及套用 .zipcode 樣式-->
-</div>
+``` css
+/* CSS */
+.zipcode {
+    background-color: #c00;
+    color: #fff;
+}
+.county {
+    background-color: #4169E1;
+    color: #fff;
+}
+.district {
+    background-color: #008000;
+    color: #fff;
+}
 ```
 
-javascripts:
-
-```
-$(function () {
-  $('#twzipcode').twzipcode({
-    countyName: 'address[city]',
-    districtName: 'address[district]',
-    zipcodeName: 'address[zip_code]',
-  });
+``` javascript
+/* Javascript */
+$('#twzipcode').twzipcode({
+    // 依序套用至縣市、鄉鎮市區及郵遞區號框
+    'css': ['county', 'district', 'zipcode']
 });
 ```
 裡面設定countyName, districtName, zipcodeName 可以配合自己的 model 跟 form_for helper。有時間看能不能把這些 javascripts 的設定改成用 helper 來使用。
 
 ## 參數
 
-名稱 | 類型 | 說明
---- | --- | ---
-detect | Boolean | 是否偵測用戶位置 **預設 false, 此功能提供的數據並非絕對正確，僅供參考**
-countyName | String | 指定縣市下拉清單的表單名稱 **預設 county**
-districtName | String | 指定鄉鎮市區下拉清單的表單名稱 **預設 district**
-zipcodeName | String | 指定郵遞區號輸入框的表單名稱 **預設 zipcode**
-countySel | String | 縣市預設值
-districtSel | String | 鄉鎮市區預設值
-zipcodeSel | String | 郵遞區號預設值
-onCountySelect | Function | 綁定縣市選單 Change 事件。 **version 1.5**
-onDistrictSelect | Function | 綁定鄉鎮市區選單 Change 事件。 **version 1.5**
-onZipcodeKeyUp | Function | 綁定郵遞區號輸入框 keyUp 事件（readonly 必須為 false）。 **version 1.5**
-readonly | Boolean | 郵遞區號輸入框是否唯讀？ **預設 true**
-css | Array | 表單元件樣式名稱 **格式: ['縣市', '鄉鎮市區', '郵遞區號']**
+名稱 | 類型 | 預設 | 說明
+--- | --- | --- | ---
+countyName | string | county | 指定縣市下拉清單的表單名稱。
+countySel | string | | 縣市預設值
+css | Array | | 表單元件樣式名稱。格式: ['縣市', '鄉鎮市區', '郵遞區號']
+detect | boolean | false | 是否偵測用戶位置（此功能提供的數據僅供參考）
+districtName | string | district | 指定鄉鎮市區下拉清單的表單名稱。
+districtSel | string | | 鄉鎮市區預設值
+onCountySelect | Function | |綁定縣市選單 Change 事件。
+onDistrictSelect | Function | |綁定鄉鎮市區選單 Change 事件。
+onZipcodeKeyUp | Function | |綁定郵遞區號輸入框 keyUp 事件（readonly 必須為 false）。
+readonly | boolean | true | 郵遞區號輸入框是否唯讀？
+zipcodeName | string | zipcode | 指定郵遞區號輸入框的表單名稱。
+zipcodeSel | string | | 郵遞區號預設值
+zipcodeIntoDistrict | boolean | false | 隱藏郵遞區號輸入框，並顯示於鄉鎮市區清單內。
 
 ## 方法
 
-方法 | 說明
+名稱 | 說明
 --- | ---
-destory | 從指定的元素移除 Plugin: **$(selector).twzipcode('destory');**
-reset | 將指定的元素恢復未選狀態: **$(selector).twzipcode('reset');**
-serialize | 將指定的元素輸出為 URL Query: **$(selector).twzipcode('serialize');**
+var foo = $(selector).twzipcode('data'); | 取得已選取縣市的郵遞區號 JSON 物件。
+var foo = $(selector).twzipcode('serialize'); | 取得 Query String。
+$(selector).twzipcode('reset'); | 重置清單。
+$(selector).twzipcode('destroy'); | 移除 TWzipcode plugin。
 
 ## Contributing
 
@@ -94,4 +103,4 @@ serialize | 將指定的元素輸出為 URL Query: **$(selector).twzipcode('seri
 
 ## Contact
 
-[@garylai1990](http://www.twitter.com/garylai1990)
+[@imgarylai](http://www.twitter.com/imgarylai)
