@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["garylai1990@gmail.com"]
   spec.description   = %q{Provide taiwan's zipcode selector}
   spec.summary       = %q{This is a jquery plugin for Taiwan's zipcode selector}
-  spec.homepage      = "https://github.com/garylai1990/tw_zipcode"
+  spec.homepage      = "https://github.com/imgarylai/tw_zipcode"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
